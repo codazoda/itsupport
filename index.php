@@ -51,6 +51,8 @@ function itUnknown() {
 
 function itHowto() {
 
+	global $alexaRequest;
+
 	// TODO: Email IT Support
 
 	// TODO: Grab the question

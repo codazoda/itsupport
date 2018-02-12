@@ -67,7 +67,7 @@ function itHowto() {
 			break;
 		default:
 			// Email it to IT Support
-			mail('jdare@ksl.com', 'Support Request from Alexa', $question));
+			mail('jdare@ksl.com', 'Support Request from Alexa', $question);
 
 			// Setup a response
 			$response = [
@@ -78,6 +78,7 @@ function itHowto() {
 					]
 				]
 			];
+			break;
 	}
 
 	return $response;

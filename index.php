@@ -112,17 +112,19 @@ function itHowto() {
 function checkForSpecialWords($wordString) {
 
 	// If it contains password and reset
-	if (strpos($wordString, 'password') !== false &&
-	    strpos($wordString, 'reset') !== false) {
+	if (strpos($wordString, 'password')) {
 		$trigger = 'password';
 	}
 
 	// If it contains printer and setup or install
-	if (strpos($wordString, 'printer') !== false &&
-	   (strpos($wordString, 'set up') !== false || strpos($wordString, 'install') !== false)) {
+	if (strpos($wordString, 'printer')) {
 		$trigger = 'printer';
 	}
 
 	return $trigger;
+
+}
+
+function stringContains(string, wordArray) {
 
 }

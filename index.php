@@ -19,7 +19,7 @@ $alexaRequest = json_decode($postData);
 $response = '';
 
 // Verify the application ID
-//if ($alexaRequest->session->application->applicationId === $validAppId) {
+if ($alexaRequest->session->application->applicationId === $validAppId) {
 
 	// Look at the session.request.intent.name
 	switch($alexaRequest->request->intent->name) {
@@ -34,7 +34,7 @@ $response = '';
 	header('Content-Type: application/json');
 	echo json_encode($response);
 
-//}
+}
 
 function itUnknown() {
 

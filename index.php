@@ -26,29 +26,11 @@ if ($alexaRequest->session->application->applicationId === $validAppId) {
 		case 'howto':
 			$response = itHowto();
 			break;
-		default:
-			$response = itUnknown();
 	}
 
 	// Setup a JSON response header and send the json response
 	header('Content-Type: application/json');
 	echo json_encode($response);
-
-}
-
-function itUnknown() {
-
-	// Setup a response
-	$response = [
-		"response" => [
-			"outputSpeech" => [
-				"type" => "SSML",
-				"ssml" => "<speak>What</speak>"
-			]
-		]
-	];
-
-	return $response;
 
 }
 
@@ -62,47 +44,40 @@ function itHowto() {
 	// Handle special words
 	$specialWords = checkForSpecialWords($question);
 
-	if ($specialWords) {
-
-		switch($specialWords) {
-			case 'password':
-				$response = [
-					"response" => [
-						"outputSpeech" => [
-							"type" => "SSML",
-							"ssml" => "<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>"
-						]
+	switch($specialWords) {
+		case 'password':
+			$response = [
+				"response" => [
+					"outputSpeech" => [
+						"type" => "SSML",
+						"ssml" => "<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>"
 					]
-				];
-				break;
-			case 'printer':
-				$response = [
-					"response" => [
-						"outputSpeech" => [
-							"type" => "SSML",
-							"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called marz and the IP address is 192.168.1.1. On 4th North it's called Venus and the IP address is 192.168.1.2</speak>"
-						]
-					]
-				];
-				break;
-		}
-
-
-	} else {
-
-		// Email it to IT Support
-		mail('jdare@ksl.com', 'Support Request from Alexa', $question . "\n\n" . json_encode($alexaRequest));
-
-		// Setup a response
-		$response = [
-			"response" => [
-				"outputSpeech" => [
-					"type" => "SSML",
-					"ssml" => "<speak>Okay, I've forwarded your request to I.T. Support.</speak>"
 				]
-			]
-		];
+			];
+			break;
+		case 'printer':
+			$response = [
+				"response" => [
+					"outputSpeech" => [
+						"type" => "SSML",
+						"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called marz and the IP address is 192.168.1.1. On 4th North it's called Venus and the IP address is 192.168.1.2</speak>"
+					]
+				]
+			];
+			break;
+		case default:
+			// Email it to IT Support
+			mail('jdare@ksl.com', 'Support Request from Alexa', $question . "\n\n" . json_encode($alexaRequest));
 
+			// Setup a response
+			$response = [
+				"response" => [
+					"outputSpeech" => [
+						"type" => "SSML",
+						"ssml" => "<speak>Okay, I've forwarded your request to I.T. Support.</speak>"
+					]
+				]
+			];
 	}
 
 	return $response;

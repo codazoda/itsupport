@@ -60,7 +60,7 @@ function itHowto() {
 	$question = $alexaRequest->request->intent->slots->question->value;
 
 	// Email it to IT Support
-	mail('jdare@ksl.com', 'Support Request from Alexa' . "\n\n" . json_encode($alexaRequest), $question);
+	mail('jdare@ksl.com', 'Support Request from Alexa', $question . "\n\n" . json_encode($alexaRequest));
 
 	// Setup a response
 	$response = [

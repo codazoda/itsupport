@@ -56,7 +56,7 @@ function itHowto() {
 	// TODO: Email IT Support
 
 	// TODO: Grab the question
-	$question = $alexaRequest->request->intent->slots->question;
+	$question = $alexaRequest->request->intent->slots->question->value;
 
 	// Setup a response
 	$response = [

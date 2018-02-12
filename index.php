@@ -60,7 +60,7 @@ function itHowto() {
 				"response" => [
 					"outputSpeech" => [
 						"type" => "SSML",
-						"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called marz and the IP address is 192.168.1.1. On 4th North it's called Venus and the IP address is 192.168.1.2</speak>"
+						"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called Marz and the IP address is 192.168.1.1. On 4th North it's called Venus and the IP address is 192.168.1.2</speak>"
 					]
 				]
 			];
@@ -86,6 +86,8 @@ function itHowto() {
 }
 
 function checkForSpecialWords($wordString) {
+
+	$trigger = '';
 
 	// If it contains password and reset
 	if (strpos($wordString, 'password')) {

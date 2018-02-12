@@ -19,7 +19,7 @@ if ($alexaRequest->session->application->applicationId === $validAppId) {
 
 	// Look at the session.request.intent.name
 	switch($alexaRequest->session->request->intent->name) {
-		'howto':
+		case 'howto':
 			$response = itHowto();
 			break;
 		default:

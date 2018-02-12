@@ -13,12 +13,13 @@ $postData = file_get_contents('php://input');
 
 // Decode the JSON
 $alexaRequest = json_decode($postData);
+$response = '';
 
 // Verify the application ID
 //if ($alexaRequest->session->application->applicationId === $validAppId) {
 
 	// Look at the session.request.intent.name
-	switch($alexaRequest->session->request->intent->name) {
+	switch($alexaRequest->request->intent->name) {
 		case 'howto':
 			$response = itHowto();
 			break;

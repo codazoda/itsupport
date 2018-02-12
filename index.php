@@ -51,15 +51,17 @@ function itUnknown() {
 
 function itHowto() {
 
-	// TODO: Grab the {message} from the request
 	// TODO: Email IT Support
+
+	// TODO: Grab the question
+	$question = $alexaRequest->request->intent->slots->question;
 
 	// Setup a response
 	$response = [
 		"response" => [
 			"outputSpeech" => [
 				"type" => "SSML",
-				"ssml" => "<speak>To setup the V.P.N. please visit g.p. dot deseret digital dot com.</speak>"
+				"ssml" => "<speak>{$question}</speak>"
 			]
 		]
 	];

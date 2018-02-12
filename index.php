@@ -59,19 +59,62 @@ function itHowto() {
 	// Grab the question
 	$question = $alexaRequest->request->intent->slots->question->value;
 
-	// Email it to IT Support
-	mail('jdare@ksl.com', 'Support Request from Alexa', $question . "\n\n" . json_encode($alexaRequest));
+	// Handle special words
+	$specialWords = checkForSpecialWords($question);
 
-	// Setup a response
-	$response = [
-		"response" => [
-			"outputSpeech" => [
-				"type" => "SSML",
-				"ssml" => "<speak>Okay, I've forwarded your request to I.T. Support.</speak>"
+	if ($specialWords) {
+
+		switch($specialWords) {
+			case 'passwordReset':
+				$response = [
+					"response" => [
+						"outputSpeech" => [
+							"type" => "SSML",
+							"ssml" => "<speak>You can easily reset your password by visiting password dot deseret digital dot com.</speak>"
+						]
+					]
+				];
+				break;
+			case 'printer':
+				$response = [
+					"response" => [
+						"outputSpeech" => [
+							"type" => "SSML",
+							"ssml" => "<speak>The main printer on 4th North is called blah and it's IP address is 192.168.1.1.</speak>"
+						]
+					]
+				];
+				break;
+		}
+
+
+	} else {
+
+		// Email it to IT Support
+		mail('jdare@ksl.com', 'Support Request from Alexa', $question . "\n\n" . json_encode($alexaRequest));
+
+		// Setup a response
+		$response = [
+			"response" => [
+				"outputSpeech" => [
+					"type" => "SSML",
+					"ssml" => "<speak>Okay, I've forwarded your request to I.T. Support.</speak>"
+				]
 			]
-		]
-	];
+		];
+
+	}
 
 	return $response;
+
+}
+
+function checkForSpecialWords($wordString) {
+
+	// If it contains password and reset
+	if (strpos($a, 'password') !== false &&
+	    strpos($a, 'reset') !== false) {
+		return 'passwordReset';
+	}
 
 }

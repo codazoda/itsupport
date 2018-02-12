@@ -117,9 +117,9 @@ function checkForSpecialWords($wordString) {
 		return 'password';
 	}
 
-	// If it contains printer and setup
+	// If it contains printer and setup or install
 	if (strpos($wordString, 'printer') !== false &&
-	   (strpos($wordString, 'setup') !== false || (strpos($wordString, 'install') !== false) {
+	   (strpos($wordString, 'setup') !== false || strpos($wordString, 'install') !== false)) {
 		return 'printer';
 	}
 

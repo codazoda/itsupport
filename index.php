@@ -39,7 +39,7 @@ function itUnknown() {
 		"response" => [
 			"outputSpeech" => [
 				"type" => "SSML",
-				"ssml" => "<speak>Sorry, I.T. Support is confused.</speak>"
+				"ssml" => "<speak>What</speak>"
 			]
 		]
 	];

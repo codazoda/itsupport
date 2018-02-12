@@ -65,7 +65,7 @@ function itHowto() {
 				]
 			];
 			break;
-		case default:
+		default:
 			// Email it to IT Support
 			mail('jdare@ksl.com', 'Support Request from Alexa', $question . "\n\n" . json_encode($alexaRequest));
 

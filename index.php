@@ -65,7 +65,7 @@ function itHowto() {
 	if ($specialWords) {
 
 		switch($specialWords) {
-			case 'passwordReset':
+			case 'password':
 				$response = [
 					"response" => [
 						"outputSpeech" => [
@@ -112,9 +112,15 @@ function itHowto() {
 function checkForSpecialWords($wordString) {
 
 	// If it contains password and reset
-	if (strpos($a, 'password') !== false &&
-	    strpos($a, 'reset') !== false) {
-		return 'passwordReset';
+	if (strpos($wordString, 'password') !== false &&
+	    strpos($wordString, 'reset') !== false) {
+		return 'password';
+	}
+
+	// If it contains printer and setup
+	if (strpos($wordString, 'printer') !== false &&
+	   (strpos($wordString, 'setup') !== false || (strpos($wordString, 'install') !== false) {
+		return 'printer';
 	}
 
 }

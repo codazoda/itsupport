@@ -70,7 +70,7 @@ function itHowto() {
 					"response" => [
 						"outputSpeech" => [
 							"type" => "SSML",
-							"ssml" => "<speak>You can easily reset your password by visiting password dot deseret digital dot com.</speak>"
+							"ssml" => "<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>"
 						]
 					]
 				];
@@ -80,7 +80,7 @@ function itHowto() {
 					"response" => [
 						"outputSpeech" => [
 							"type" => "SSML",
-							"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called blah and the IP address is 192.168.1.1. On 4th North it's called blah and the IP address is 192.168.1.2</speak>"
+							"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called marz and the IP address is 192.168.1.1. On 4th North it's called Venus and the IP address is 192.168.1.2</speak>"
 						]
 					]
 				];

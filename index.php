@@ -124,7 +124,3 @@ function checkForSpecialWords($wordString) {
 	return $trigger;
 
 }
-
-function stringContains(string, wordArray) {
-
-}

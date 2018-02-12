@@ -5,9 +5,9 @@ This is a simple _IT Support_ Alexa skill.
 
 ## Prompts
 
-_Alexa, Ask IT Support how to [setup the VPN]_
+_Alexa, Ask IT Support [whatever]_
 
-Sends an email to it@deseretdigital.com with {something} in the body.
+Sends an email to it@deseretdigital.com with [whatever] in the body.
 
 
 ## Notes

@@ -11,6 +11,9 @@ $validAppId = 'amzn1.ask.skill.535f89e1-f247-4ecf-9853-07a0414ea8b1';
 // Get raw POST data
 $postData = file_get_contents('php://input');
 
+// Write debug info
+file_put_contents('debug.log', $postData);
+
 // Decode the JSON
 $alexaRequest = json_decode($postData);
 $response = '';

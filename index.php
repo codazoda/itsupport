@@ -53,17 +53,18 @@ function itHowto() {
 
 	global $alexaRequest;
 
-	// TODO: Email IT Support
-
-	// TODO: Grab the question
+	// Grab the question
 	$question = $alexaRequest->request->intent->slots->question->value;
+
+	// Email it to IT Support
+	mail('jdare@ksl.com', 'Support Request from Alexa', $question);
 
 	// Setup a response
 	$response = [
 		"response" => [
 			"outputSpeech" => [
 				"type" => "SSML",
-				"ssml" => "<speak>{$question}</speak>"
+				"ssml" => "<speak>Okay, I've forwarded your question to I.T. Support.</speak>"
 			]
 		]
 	];

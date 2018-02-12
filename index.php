@@ -80,7 +80,7 @@ function itHowto() {
 					"response" => [
 						"outputSpeech" => [
 							"type" => "SSML",
-							"ssml" => "<speak>The main printer on 4th North is called blah and it's IP address is 192.168.1.1.</speak>"
+							"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called blah and the IP address is 192.168.1.1. On 4th North it's called blah and the IP address is 192.168.1.2</speak>"
 						]
 					]
 				];
@@ -114,13 +114,15 @@ function checkForSpecialWords($wordString) {
 	// If it contains password and reset
 	if (strpos($wordString, 'password') !== false &&
 	    strpos($wordString, 'reset') !== false) {
-		return 'password';
+		$trigger = 'password';
 	}
 
 	// If it contains printer and setup or install
 	if (strpos($wordString, 'printer') !== false &&
-	   (strpos($wordString, 'setup') !== false || strpos($wordString, 'install') !== false)) {
-		return 'printer';
+	   (strpos($wordString, 'set up') !== false || strpos($wordString, 'install') !== false)) {
+		$trigger = 'printer';
 	}
+
+	return $trigger;
 
 }

@@ -59,7 +59,7 @@ function itHowto() {
 		"response" => [
 			"outputSpeech" => [
 				"type" => "SSML",
-				"ssml" => "<speak>Okay, I've emailed I.T. Support.</speak>"
+				"ssml" => "<speak>To setup the V.P.N. please visit g.p. dot deseret digital dot com.</speak>"
 			]
 		]
 	];

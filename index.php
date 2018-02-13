@@ -90,12 +90,12 @@ function checkForSpecialWords($wordString) {
 	$trigger = '';
 
 	// If it contains password and reset
-	if (strpos($wordString, 'password')) {
+	if (stripos($wordString, 'password')) {
 		$trigger = 'password';
 	}
 
 	// If it contains printer and setup or install
-	if (strpos($wordString, 'printer')) {
+	if (stripos($wordString, 'printer')) {
 		$trigger = 'printer';
 	}
 

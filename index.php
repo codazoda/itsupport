@@ -70,10 +70,11 @@ function itHowto() {
 				"response" => [
     				"reprompt" => [
 				     	"outputSpeech" => [
-				    		"type" => "SSML",
-				    		"ssml" => '<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>'
+				    		"type" => "PlainText",
+				    		"text" => 'You can reset your password by visiting password dot deseret digital dot com.'
 				    	],
-				    	"shouldEndSession" => false
+				    	"shouldEndSession" => false,
+				    	"sessionAttributes" => []
 				    ]
 				]
 			];

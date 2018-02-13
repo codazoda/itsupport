@@ -68,10 +68,12 @@ function itHowto() {
 		case 'password':
 			$response = [
 				"response" => [
-					"outputSpeech" => [
-						"type" => "SSML",
-						"ssml" => "<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>"
-					]
+    				"reprompt" => [
+				     	"outputSpeech" => [
+				    		"type" => "SSML",
+				    		"ssml" => '<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>'
+				    	]
+				    ]
 				]
 			];
 			break;

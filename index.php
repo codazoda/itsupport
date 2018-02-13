@@ -48,7 +48,7 @@ if ($alexaRequest->session->application->applicationId === $validAppId) {
 
 	} elseif ($alexaRequest->request.type == 'LaunchRequest') {
 
-		function voiceResponse();
+		voiceResponse();
 
 	}
 

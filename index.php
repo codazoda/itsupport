@@ -121,7 +121,7 @@ function itCancel() {
 		"response" => [
 			"outputSpeech" => [
 				"type" => "SSML",
-				"ssml" => '<speak>Okay, bleep, bleep, blop, cancelled."</speak>'
+				"ssml" => '<speak>Okay, bleep, blop, bleep, cancelled."</speak>'
 			]
 		]
 	];

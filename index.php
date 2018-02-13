@@ -72,7 +72,8 @@ function itHowto() {
 				     	"outputSpeech" => [
 				    		"type" => "SSML",
 				    		"ssml" => '<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>'
-				    	]
+				    	],
+				    	"shouldEndSession": false
 				    ]
 				]
 			];

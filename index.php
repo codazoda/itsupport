@@ -60,7 +60,7 @@ function itHowto() {
 				"response" => [
 					"outputSpeech" => [
 						"type" => "SSML",
-						"ssml" => "<speak>There are two printers on the 4th floor. On 4th South it's called Marz and the IP address is 192.168.1.1. On 4th North it's called Venus and the IP address is 192.168.1.2</speak>"
+						"ssml" => "<speak>There are two printers on the 4th floor. On 4th South there's  an HP LaserJet 500 and its IP address is 10.250.6.25. On 4th North there's another printer, but I don't know anything about that one.</speak>"
 					]
 				]
 			];

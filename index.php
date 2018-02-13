@@ -22,7 +22,7 @@ $response = '';
 if ($alexaRequest->session->application->applicationId === $validAppId) {
 
 	// TODO: Deal with request.type (IntentRequest, LaunchRequest)
-	if ($alexaRequest->request.type == 'IntentRequest') {
+	if ($alexaRequest->request->type == 'IntentRequest') {
 
 		// Look at the session.request.intent.name
 		switch($alexaRequest->request->intent->name) {
@@ -46,7 +46,7 @@ if ($alexaRequest->session->application->applicationId === $validAppId) {
 		header('Content-Type: application/json');
 		echo json_encode($response);
 
-	} elseif ($alexaRequest->request.type == 'LaunchRequest') {
+	} elseif ($alexaRequest->request->type == 'LaunchRequest') {
 
 		voiceResponse();
 

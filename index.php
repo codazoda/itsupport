@@ -26,6 +26,17 @@ if ($alexaRequest->session->application->applicationId === $validAppId) {
 		case 'howto':
 			$response = itHowto();
 			break;
+		case 'AMAZON.HelpIntent':
+			$response = itHelp();
+			break;
+		case 'AMAZON.StopIntent':
+			$response = itCancel();
+			break;
+		case 'AMAZON.CancelIntent':
+			$response = itCancel();
+			break;
+		default:
+			$response = itCancel();
 	}
 
 	// Setup a JSON response header and send the json response
@@ -80,6 +91,23 @@ function itHowto() {
 			];
 			break;
 	}
+
+	return $response;
+
+}
+
+function itHelp() {
+
+	global $alexaRequest;
+
+	$response = [
+		"response" => [
+			"outputSpeech" => [
+				"type" => "SSML",
+				"ssml" => '<speak>The support skill can help with a few common questions and it can forward other questions on to I.T. Support. You can say things like "Alexa, ask support to reset my password" or "Alexa, ask support how to setup a printer". You can also make more general comments that will get forwarded by email, for example you can say, "Alexa, tell support that the coke is out on 4th north."</speak>'
+			]
+		]
+	];
 
 	return $response;
 

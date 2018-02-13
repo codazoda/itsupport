@@ -21,27 +21,36 @@ $response = '';
 // Verify the application ID
 if ($alexaRequest->session->application->applicationId === $validAppId) {
 
-	// Look at the session.request.intent.name
-	switch($alexaRequest->request->intent->name) {
-		case 'howto':
-			$response = itHowto();
-			break;
-		case 'AMAZON.HelpIntent':
-			$response = itHelp();
-			break;
-		case 'AMAZON.StopIntent':
-			$response = itCancel();
-			break;
-		case 'AMAZON.CancelIntent':
-			$response = itCancel();
-			break;
-		default:
-			$response = itCancel();
-	}
+	// TODO: Deal with request.type (IntentRequest, LaunchRequest)
+	if ($alexaRequest->request.type == 'IntentRequest') {
 
-	// Setup a JSON response header and send the json response
-	header('Content-Type: application/json');
-	echo json_encode($response);
+		// Look at the session.request.intent.name
+		switch($alexaRequest->request->intent->name) {
+			case 'howto':
+				$response = itHowto();
+				break;
+			case 'AMAZON.HelpIntent':
+				$response = itHelp();
+				break;
+			case 'AMAZON.StopIntent':
+				$response = itCancel();
+				break;
+			case 'AMAZON.CancelIntent':
+				$response = itCancel();
+				break;
+			default:
+				$response = itCancel();
+		}
+
+		// Setup a JSON response header and send the json response
+		header('Content-Type: application/json');
+		echo json_encode($response);
+
+	} elseif ($alexaRequest->request.type == 'LaunchRequest') {
+
+		function voiceResponse();
+
+	}
 
 }
 
@@ -98,8 +107,6 @@ function itHowto() {
 
 function itHelp() {
 
-	global $alexaRequest;
-
 	$response = [
 		"response" => [
 			"outputSpeech" => [
@@ -115,8 +122,6 @@ function itHelp() {
 
 function itCancel() {
 
-	global $alexaRequest;
-
 	$response = [
 		"response" => [
 			"outputSpeech" => [
@@ -127,6 +132,23 @@ function itCancel() {
 	];
 
 	return $response;
+
+}
+
+function voiceResponse() {
+
+	$response = [
+		"response" => [
+			"outputSpeech" => [
+				"type" => "SSML",
+				"ssml" => '<speak>Okay, what can I.T. Support do for you today?</speak>'
+			]
+		]
+	];
+
+	// Setup a JSON response header and send the json response
+	header('Content-Type: application/json');
+	echo json_encode($response);
 
 }
 

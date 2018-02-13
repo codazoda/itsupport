@@ -113,6 +113,23 @@ function itHelp() {
 
 }
 
+function itCancel() {
+
+	global $alexaRequest;
+
+	$response = [
+		"response" => [
+			"outputSpeech" => [
+				"type" => "SSML",
+				"ssml" => '<speak>Okay, bleep, bleep, blop, cancelled."</speak>'
+			]
+		]
+	];
+
+	return $response;
+
+}
+
 function checkForSpecialWords($wordString) {
 
 	$trigger = '';

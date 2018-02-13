@@ -68,14 +68,10 @@ function itHowto() {
 		case 'password':
 			$response = [
 				"response" => [
-    				"reprompt" => [
-				     	"outputSpeech" => [
-				    		"type" => "PlainText",
-				    		"text" => 'You can reset your password by visiting password dot deseret digital dot com.'
-				    	],
-				    	"shouldEndSession" => false,
-				    	"sessionAttributes" => []
-				    ]
+					"outputSpeech" => [
+						"type" => "SSML",
+						"ssml" => "<speak>You can reset your password by visiting password dot deseret digital dot com.</speak>"
+					],
 				]
 			];
 			break;
@@ -143,10 +139,14 @@ function voiceResponse() {
 
 	$response = [
 		"response" => [
-			"outputSpeech" => [
-				"type" => "SSML",
-				"ssml" => '<speak>Okay, what can I.T. Support do for you today?</speak>'
-			]
+			"reprompt" => [
+		     	"outputSpeech" => [
+		    		"type" => "PlainText",
+		    		"text" => 'Okay, what can I.T. Support do for you today?'
+		    	],
+		    	"shouldEndSession" => false,
+		    	"sessionAttributes" => []
+		    ]
 		]
 	];
 
